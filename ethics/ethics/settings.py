@@ -123,5 +123,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-ACCOUNT_SID = 'ACc822fc099d01e3a6d6e0197583e75b12'
-AUTH_TOKEN = 'b16ad0baf3c005bc4e2a05f7ba3c752d'
+ACCOUNT_SID = ''
+AUTH_TOKEN = ''
