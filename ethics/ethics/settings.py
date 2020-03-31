@@ -25,7 +25,7 @@ SECRET_KEY = '_+cxyxkxmq0==3ruk23)nti!!sy64fv(a9_)1dk71i-p(r-%ol'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['425cb337.ngrok.io', '127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sms'
+    'django_countries',
+    'sms',
+    'companyusers',
+    'company'
 ]
 
 MIDDLEWARE = [
@@ -123,5 +126,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-ACCOUNT_SID = ''
-AUTH_TOKEN = ''

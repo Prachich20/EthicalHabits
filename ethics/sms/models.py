@@ -10,6 +10,7 @@ class Sms(models.Model):
     to_service = models.CharField(max_length=20, blank=True, null=True)
     url = models.CharField(max_length=300)
     direction = models.CharField(max_length=30)
+    status = models.CharField(max_length=300)
     account_sid = models.CharField(max_length=50)
     created = models.DateTimeField(max_length=100)
     error_code = models.CharField(max_length=50, blank=True, null=True)
