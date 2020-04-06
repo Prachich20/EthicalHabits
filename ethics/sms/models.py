@@ -3,7 +3,7 @@ from django.db import models
 
 class Sms(models.Model):
     sid = models.CharField(max_length=50)
-    body = models.CharField(max_length=300)
+    body = models.CharField(max_length=800)
     message_from = models.CharField(max_length=15)
     from_service = models.CharField(max_length=20, blank=True, null=True)
     message_to = models.CharField(max_length=14)

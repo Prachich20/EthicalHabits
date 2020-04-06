@@ -1,4 +1,4 @@
-import ethics.settings as settings
+import ethics.ethics.settings as settings
 from twilio.rest import Client
 
 

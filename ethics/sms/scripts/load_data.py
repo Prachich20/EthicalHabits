@@ -1,8 +1,10 @@
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'ethics.settings'
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ethics.ethics.settings'
 import django
+
 django.setup()
-import ethics.settings as settings
+import ethics.ethics.settings as settings
 from twilio.rest import Client
 
 from sms.models import Sms
