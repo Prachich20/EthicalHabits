@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from company.models import Company
-import ethics.settings as settings
 
 
 class Employee(models.Model):
@@ -19,11 +18,11 @@ class Employee(models.Model):
         sorted('company')
 
     def __str__(self):
-        return '{}.{}-{}'.format(self.firstname, self.lastname, (self.company.name, 'admin' if self.company_admin else \
+        return '{}.{}-{}'.format(self.firstname, self.lastname, (self.company.name, 'admin' if self.company_admin else
             'not admin'))
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        is_employee = Employee.objects.filter(email=self.email,).first()
+        is_employee = Employee.objects.filter(email=self.email, ).first()
 
         is_user = User.objects.filter(email=self.email).first()
         if not is_user:
@@ -35,6 +34,7 @@ class Employee(models.Model):
             user.is_staff = True
             user.is_active = True
             user.is_superuser = False
+            import ethics.settings as settings
             user.set_password(settings.DEFAULT_PWD)
             user.save()
         else:
