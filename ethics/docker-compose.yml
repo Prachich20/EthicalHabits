@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  dockerapp:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+      - db
+    environment:
+      - ACCOUNT_SID: ''
+      - AUTH_TOKEN: ''
+      - SECRET_KEY: '_+cxyxkxmq0==3ruk23)nti!!sy64fv(a9_)1dk71i-p(r-%ol'
+      - DB_NAME: 'ethicalhabits'
+      - DB_USER: 'postgres'
+      - DB_PASSWORD: 'admin'
+  db:
+    image: postgres
+    
+  redis:
+    image: redis:3.2.0
