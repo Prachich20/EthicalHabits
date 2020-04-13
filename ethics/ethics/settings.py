@@ -19,22 +19,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< Updated upstream
 SECRET_KEY = os.environ['SECRET_KEY']
 
-=======
-
-SECRET_KEY = os.environ['SECRET_KEY']
->>>>>>> Stashed changes
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< Updated upstream
 ALLOWED_HOSTS = ['0.0.0.0']
-=======
-ALLOWED_HOSTS = ['0.0.0.0','http://7e889223.ngrok.io' ]
->>>>>>> Stashed changes
+
 
 # Application definition
 
@@ -99,11 +91,7 @@ DATABASES = {
         'NAME': os.environ['DB_USER'],
         'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
-<<<<<<< Updated upstream
         'db': 'db',
-=======
-        'db': 'db',        
->>>>>>> Stashed changes
         'HOST': 'db',
         'PORT': '5432',
     }
