@@ -12,6 +12,9 @@ services:
       - redis
       - db
     environment:
+      'ACCOUNT_SID': 'ACc822fc099d01e3a6d6e0197583e75b12'
+      'AUTH_TOKEN': 'cb189b6130b0522cbc0dd055fa061fb9'
+      'SECRET_KEY': '_+cxyxkxmq0==3ruk23)nti!!sy64fv(a9_)1dk71i-p(r-%ol'
       'DB_NAME': 'ethicalhabits'
       'DB_USER': 'postgres'
       'DB_PASSWORD': 'admin'
@@ -24,4 +27,3 @@ services:
     image: redis:3.2.0
 volumes:
   postgres_data:
-
