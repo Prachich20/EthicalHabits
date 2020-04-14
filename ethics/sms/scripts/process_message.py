@@ -1,10 +1,10 @@
 import os
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'ethics.ethics.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ethics.settings'
 import django
 
 django.setup()
-import ethics.ethics.settings as settings
+import ethics.settings as settings
 
 import spacy
 from sms.models import Sms
@@ -43,7 +43,7 @@ def get_location(ents):
     return name, location
 
 
-def extract():
+def run():
     if companies:
         for com in companies:
             print("extract starting for {}".format(com.subgroup))
@@ -53,6 +53,7 @@ def extract():
                 num = number.number.replace('-', '').replace(' ', '').strip()
                 smses = Sms.objects.filter(message_to=num, direction=settings.INBOUND)
                 for sms in smses:
+                    print(sms.sid)
                     master = MasterData.objects.filter(sid=sms.sid).first()
                     if not master:
                         my_doc = nlp(sms.body)
@@ -79,8 +80,9 @@ def extract():
                         masterdata.to_service = sms.to_service
                         masterdata.message_to = sms.message_to
                         masterdata.save()
+                        print(f"{masterdata.sid} created")
 
 
 if __name__ == '__main__':
-    extract()
+    run()
     print('completed')

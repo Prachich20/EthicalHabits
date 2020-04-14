@@ -18,11 +18,13 @@ client = Client(account_sid, auth_token)
 all_sms = Sms.objects.all()
 
 
-def load():
+def run():
     messages = client.messages.list()
+    print(len(messages))
     for record in messages:
         sms = all_sms.filter(sid=record.sid).first()
         if not sms:
+            print(sms.sid)
             from_ = record.from_.split(':')
             from_num = from_[0] if len(from_) == 1 else from_[1]
             from_service = '' if len(from_) == 1 else from_[0]
@@ -50,4 +52,5 @@ def load():
 
 
 if __name__ == '__main__':
-    load()
+    run()
+    print('Completed')
