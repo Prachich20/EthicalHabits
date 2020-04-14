@@ -25,8 +25,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_countries',
+    'django_extensions'
     'rest_framework',
     'django_filters',
     'sms',

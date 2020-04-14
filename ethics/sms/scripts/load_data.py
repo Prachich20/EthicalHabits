@@ -1,17 +1,17 @@
 import os
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'ethics.ethics.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ethics.settings'
 import django
 
 django.setup()
-import ethics.ethics.settings as settings
+import ethics.settings as settings
 from twilio.rest import Client
 
 from sms.models import Sms
 
 # Your Account Sid and Auth Token from twilio.com/console
 # DANGER! This is insecure. See http://twil.io/secure
-
+print('hi')
 account_sid = settings.ACCOUNT_SID
 auth_token = settings.AUTH_TOKEN
 client = Client(account_sid, auth_token)
