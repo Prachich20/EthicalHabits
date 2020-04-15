@@ -21,8 +21,8 @@ RUN pip install -r require.txt
 
 # install psycopg2 dependencies
 RUN apt-get -y install libpq-dev
-RUN echo pg_config --version
-RUN pip install psycopg2-binary  
+RUN pip install psycopg2-binary 
+ 
 
 RUN mkdir /code
 WORKDIR /code
@@ -33,5 +33,6 @@ ENV PYTHONUNBUFFERED 1
 
 COPY requirements.txt /code/requirements.txt
 RUN pip install -r requirements.txt
+RUN python -m spacy download en_core_web_sm
 
 COPY . /code/
