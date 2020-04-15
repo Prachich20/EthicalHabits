@@ -23,9 +23,7 @@ class Employee(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         is_employee = Employee.objects.filter(email=self.email, ).first()
-
-        is_user = User.objects.filter(email=self.email).first()
-        if not is_user:
+        if not is_employee:
             user = User()
             user.first_name = self.firstname
             user.last_name = self.lastname
@@ -38,11 +36,12 @@ class Employee(models.Model):
             user.set_password(settings.DEFAULT_PWD)
             user.save()
         else:
+            is_user = User.objects.filter(email=is_employee.email).first()
             is_user.email = self.email
             is_user.first_name = self.firstname
             is_user.last_name = self.lastname
             is_user.save()
-        self.user = user
+        # self.is_user = user
         super().save()
 
 
